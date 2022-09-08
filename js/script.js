@@ -20,13 +20,13 @@ function playGame(playerInput) {
 		}
 	}
 
-	function displayResult(argComputerMove, argPlayerMove) {
-		if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
-			(argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
-			(argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
+	function displayResult(ComputerMove, PlayerMove) {
+		if ((ComputerMove == 'kamień' && PlayerMove == 'papier') ||
+			(ComputerMove == 'papier' && PlayerMove == 'nożyce') ||
+			(ComputerMove == 'nożyce' && PlayerMove == 'kamień')) {
 			printMessage('Wygrywasz');
-		} else if ((argComputerMove == argPlayerMove) ||
-			(argPlayerMove == 'nieznany ruch')) {
+		} else if (ComputerMove == PlayerMove) 
+			 {
 			printMessage('Remis');
 		} else {
 			printMessage('Komputer wygrywa');
