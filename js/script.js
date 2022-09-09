@@ -9,23 +9,23 @@ function playGame(playerInput) {
 		document.getElementById('messages').innerHTML = '';
 	}
 
-	function getMoveName(argMoveId) {
-		if (argMoveId == 1) {
+	let getMoveName = function (computerMove) {
+		if (computerMove == 1) {
 			return 'kamień';
-		} else if (argMoveId == 2) {
+		} else if (computerMove == 2) {
 			return 'papier';
 		}
-		else if (argMoveId == 3) {
+		else if (computerMove == 3) {
 			return 'nożyce';
 		}
 	}
 
-	function displayResult(ComputerMove, PlayerMove) {
-		if ((ComputerMove == 'kamień' && PlayerMove == 'papier') ||
-			(ComputerMove == 'papier' && PlayerMove == 'nożyce') ||
-			(ComputerMove == 'nożyce' && PlayerMove == 'kamień')) {
+	function displayResult(computerMove, playerMove) {
+		if ((computerMove == 'kamień' && playerMove == 'papier') ||
+			(computerMove == 'papier' && playerMove == 'nożyce') ||
+			(computerMove == 'nożyce' && playerMove == 'kamień')) {
 			printMessage('Wygrywasz');
-		} else if (ComputerMove == PlayerMove) 
+		} else if (computerMove == playerMove) 
 			 {
 			printMessage('Remis');
 		} else {
@@ -36,14 +36,14 @@ function playGame(playerInput) {
 
 	clearMessages();
 
-	let randomNumber = Math.floor(Math.random() * 3 + 1);
+	const randomNumber = Math.floor(Math.random() * 3 + 1);
 	let computerMove = getMoveName(randomNumber); // 1 -> kamień
 	printMessage('Mój ruch to: ' + computerMove);
 
 	let playerMove = getMoveName(playerInput); // 2 -> nożyce
 	printMessage('Twój ruch to: ' + playerMove);
 
-	displayResult(playerMove, computerMove);
+	displayResult(computerMove, playerMove);
 
 
 }
